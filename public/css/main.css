@@ -13,26 +13,25 @@ body, input, button {
     font-family: 'Roboto', sans-serif;
 }
 
-.noFill {
-    fill: none;
-}
-
 header {
     width: 100%;
-    height: 80px;
+    height: 100px;
     padding: 15px;
     top: 0;
     left: 0;
     z-index: 5;
     border-radius: inherit;
     background: #3a9292;
-    box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
+    /*background: #1B2B39;*/
+    box-shadow: 0 2px 4px rgba(44, 62, 80, 0.15);
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
 
 header input {
-    width: 100%;
+    position: absolute;
+    top: 45px;;
+    width: 92%;
     height: 50px;
     float: left;
     color: #fff;
@@ -41,11 +40,11 @@ header input {
     text-indent: 18px;
     padding: 0 60px 0 0;
     background: rgba(255, 255, 255, 0.2);
-    border-radius: 5px 25px 25px 5px;
+    border-radius: 10px 25px 25px 10px;
     border: 0px;
     box-shadow: none;
     outline: none;
-
+    display: block;
     -webkit-appearance: none;
     -moz-appearance: none;
 }
@@ -71,7 +70,7 @@ header button {
     height: 50px;
 
     position:absolute;
-    top:15px;
+    top:45px;
     right:15px;
     z-index:2;
 
@@ -84,21 +83,6 @@ header button {
 
     -webkit-appearance: none;
     -moz-appearance: none;
-}
-
-header button svg {
-    width: 16px;
-    height: 16px;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    margin: -8px 0 0 -8px;
-}
-
-header button svg .fill {
-    fill: #24aead;
 }
 
 .container {
@@ -171,57 +155,6 @@ ul.todo li .buttons button:last-of-type:before {
     left: 0;
 }
 
-ul.todo li .buttons button svg {
-    width: 22px;
-    height: 22px;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    margin: -11px 0 0 -11px;
-}
-
-ul.todo li .buttons button.complete svg {
-    border-radius: 11px;
-    border: 1.5px solid #25b99a;
-
-    transition: background 0.2s ease;
-}
-
-ul.todo#completed li .buttons button.complete svg {
-    background: #25b99a;
-    border: 0px;
-}
-
-ul.todo:not(#completed) li .buttons button.complete:hover svg {
-    background: rgba(37, 185, 154, 0.75);
-}
-
-ul.todo:not(#completed) li .buttons button.complete:hover svg .fill {
-    fill: #fff;
-}
-
-ul.todo#completed li .buttons button.complete svg .fill {
-    fill: #fff;
-}
-
-ul.todo li .buttons button svg .fill {
-    transition: fill 0.2s ease;
-}
-
-ul.todo li .buttons button.remove svg .fill {
-    fill: #c0cecb;
-}
-
-ul.todo li .buttons button.remove:hover svg .fill {
-    fill: #e85656;
-}
-
-ul.todo li .buttons button.complete svg .fill {
-    fill: #25b99a;
-}
-
 ul.todo#completed {
     position: relative;
     padding: 60px 0 0 0;
@@ -258,6 +191,54 @@ ul.todo#completed:after {
     color: #aaa;
 }
 
+.plus.icon {
+    color: #000;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    margin-left: 3px;
+    margin-top: 10px;
+}
+
+.plus.icon:before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 2px;
+    background-color: currentColor;
+    color: #3a9292;
+}
+
+.plus.icon:after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 2px;
+    background-color: currentColor;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    color: #3a9292;
+}
+
+.fa-trash-o {
+    font-size: 23px;
+    color: gainsboro;
+}
+
+.fa-trash-o:hover {
+    color: #e85656;
+}
+
+.fa-check-square-o {
+    color: gainsboro;
+    padding-top: 2px;
+    font-size: 24px;
+}
+
+.fa-check-square-o:hover {
+    color: #25b99a;
+}
+
 .wrapper {
     position: absolute;
     top: 0;
@@ -267,7 +248,8 @@ ul.todo#completed:after {
     margin: auto;
     width: 400px;
     height: 620px;
-    background-color: #fff;
+    /*background-color: #fff;*/
+    background-color: #ECEDF1;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6);
@@ -287,6 +269,18 @@ ul.todo#completed:after {
 
 #completed .remove {
     float: right;
+}
+
+.center {
+    /*margin: 0 auto;*/
+    /*width: 50%;*/
+    display: table;
+    margin: 0 auto;
+}
+
+.d {
+    color: #ECEDF1;
+    display: inline-block;
 }
 
 @media (min-device-width:0px) and (max-device-width: 736px)  {

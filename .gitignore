@@ -1,2 +1,5 @@
 .idea
 .DS_Store
+firebase-debug.log
+firebase.json
+.firebaserc

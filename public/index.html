@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- Set the viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ToDo List</title>
+    <!-- Request fonts and styles -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/reset.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+    <!--  add manifest here -->
+    <link rel="manifest" href="/manifest.json">
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="ToDo List">
+    <link rel="apple-touch-icon" href="icons/app-icon@152x152.png">
+    <meta name="msapplication-TileImage" content="icons/app-icon@144x144.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+
+    <meta name="theme-color" content="#317EFB"/>
+
+  </head>
+  <body>
+    <noscript>
+      <h1>Please enable Javascript in order to use this App's features.</h1>
+    </noscript>
+    <div class="wrapper">
+        <div class="inner-wrapper">
+          <header>
+            <div class="center">
+            <div class="d"><h2 id="day"></h2></div>
+            <div class="d" style="padding-left: 5px;"><p id="date"></p></div>
+            </div>
+            <input type="text" placeholder="Enter a task.." id="item">
+            <button id="add" onclick="addTodo()">
+              <div class="plus icon"></div>
+            </button>
+          </header>
+          <div class="container">
+            <!-- Uncompleted tasks -->
+            <ul class="todo" id="todo"></ul>
+            <!-- Completed tasks -->
+            <ul class="todo " id="completed"></ul>
+          </div>
+        </div>
+    </div>
+
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(function(registration) {
+          console.log('Service Worker registration successful with scope: ',
+          registration.scope);
+        })
+        .catch(function(err) {
+          console.log('Service Worker registration failed: ', err);
+        });
+    }
+  </script>
+    <script>
+        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        var date = new Date();
+        var dayName = days[date.getDay()];
+        var monthName = months[date.getMonth()];
+        var day = date.getDate();
+      document.getElementById('day').innerHTML = dayName + ', ';
+      document.getElementById('date').innerHTML = monthName + ' ' + day;
+
+        taskInput = document.getElementById('item');
+        taskInput.addEventListener('keyup', function(event) {
+            //check to see if the enter key was pressed
+            if (event.which === 13) {
+                //if so, run the addTodo function
+                  addTodo();
+            }
+        });
+    </script>
+  </body>
+</html>
