@@ -89,7 +89,7 @@ function showTodos(e) {
     index.openCursor().onsuccess = function (e) {
         var cursor = e.target.result;
         if(cursor) {
-            output += '<li>' + cursor.value.name + '<div class="buttons">' + '<button class="remove" onclick="deleteItem(' + cursor.value.id + ')">' + removeIcon + '</button>' + '<button class="complete" onclick="fulfillTodo(' + cursor.value.id + ')">' + completeIcon + '</button>' + '</li>';
+            output += '<li>' + cursor.value.name + '<div class="buttons">' + '<button name="delete" class="remove" onclick="deleteItem(' + cursor.value.id + ')">' + removeIcon + '</button>' + '<button name="complete" class="complete" onclick="fulfillTodo(' + cursor.value.id + ')">' + completeIcon + '</button>' + '</li>';
             cursor.continue();
         }
         $('#todo').html(output);
@@ -129,7 +129,7 @@ function showDone(e) {
     index.openCursor().onsuccess = function (e) {
         var cursor = e.target.result;
         if(cursor) {
-            output += '<li>' + cursor.value.name + '<div class="buttons">' + '<button class="remove" onclick="deleteDoneItem(' + cursor.value.id + ')">' + removeIcon + '</button>' + '</li>';
+            output += '<li>' + cursor.value.name + '<div class="buttons">' + '<button name="delete" class="remove" onclick="deleteDoneItem(' + cursor.value.id + ')">' + removeIcon + '</button>' + '</li>';
             cursor.continue();
         }
         $('#completed').html(output);
