@@ -1,5 +1,6 @@
 # Todo List PWA
 A ToDo list progressive web application. <br>
+Click [here](https://todo-367d3.firebaseapp.com/) for Demo.
 
 ![alt text](imgs/todoPWA.png "ToDo PWA Screenshot")
 <br><br>
