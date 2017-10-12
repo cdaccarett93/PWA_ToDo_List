@@ -53,36 +53,60 @@
 
 
   <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(function(registration) {
-          console.log('Service Worker registration successful with scope: ',
-          registration.scope);
-        })
-        .catch(function(err) {
-          console.log('Service Worker registration failed: ', err);
-        });
-    }
-  </script>
+  if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('service-worker.js')
+    .then(function(registration) {
+      console.log(
+        'Service Worker registration successful with scope: ',
+        registration.scope
+      );
+    })
+    .catch(function(err) {
+      console.log('Service Worker registration failed: ', err);
+    });
+}
+</script>
     <script>
-        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-        var date = new Date();
-        var dayName = days[date.getDay()];
-        var monthName = months[date.getMonth()];
-        var day = date.getDate();
-      document.getElementById('day').innerHTML = dayName + ', ';
-      document.getElementById('date').innerHTML = monthName + ' ' + day;
+    var days = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday'
+];
+var months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+];
+var date = new Date();
+var dayName = days[date.getDay()];
+var monthName = months[date.getMonth()];
+var day = date.getDate();
+document.getElementById('day').innerHTML = dayName + ', ';
+document.getElementById('date').innerHTML = monthName + ' ' + day;
 
-        taskInput = document.getElementById('item');
-        taskInput.addEventListener('keyup', function(event) {
-            //check to see if the enter key was pressed
-            if (event.which === 13) {
-                //if so, run the addTodo function
-                  addTodo();
-                  $(this).blur();
-            }
-        });
-    </script>
+taskInput = document.getElementById('item');
+taskInput.addEventListener('keyup', function(event) {
+  //check to see if the enter key was pressed
+  if (event.which === 13) {
+    //if so, run the addTodo function
+    addTodo();
+    $(this).blur();
+  }
+});
+</script>
   </body>
 </html>
